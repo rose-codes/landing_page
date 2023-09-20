@@ -2,7 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import logo from "./logo.svg";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import LandingPage from "./pages/LandingPage";
+import CartPage from "./pages/cart/CartPage";
+import ShopPage from "./pages/shop/ShopPage";
+import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { FluentProvider, teamsLightTheme } from "@fluentui/react-components";
 
@@ -36,7 +39,11 @@ function App() {
     <FluentProvider theme={teamsLightTheme}>
       <div className="App">
         <Navbar />
-        <Hero />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/shop" element={<ShopPage />} />
+        </Routes>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
