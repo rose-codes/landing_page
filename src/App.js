@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import logo from "./logo.svg";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 import "./App.css";
 import { FluentProvider, teamsLightTheme } from "@fluentui/react-components";
 
@@ -35,6 +36,7 @@ function App() {
     <FluentProvider theme={teamsLightTheme}>
       <div className="App">
         <Navbar />
+        <Hero />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -60,6 +62,16 @@ function App() {
           )}
         </header>
       </div>
+      <footer>
+        Photo by{" "}
+        <a href="https://unsplash.com/@pmvch?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          pmv chamara
+        </a>{" "}
+        on{" "}
+        <a href="https://unsplash.com/photos/OXYOFT9gTOE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          Unsplash
+        </a>
+      </footer>
     </FluentProvider>
   );
 }
