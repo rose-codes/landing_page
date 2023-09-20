@@ -78,6 +78,30 @@ function App() {
         <a href="https://unsplash.com/photos/OXYOFT9gTOE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
           Unsplash
         </a>
+        Photo by{" "}
+        <a href="https://unsplash.com/@msbirgith?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          Birgith Roosipuu
+        </a>{" "}
+        on{" "}
+        <a href="https://unsplash.com/photos/PWPe-x1Ygtw?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          Unsplash
+        </a>
+        Photo by{" "}
+        <a href="https://unsplash.com/@curology?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          Curology
+        </a>{" "}
+        on{" "}
+        <a href="https://unsplash.com/photos/X1sIr53DhzA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          Unsplash
+        </a>
+        Photo by{" "}
+        <a href="https://unsplash.com/@linaverovaya?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          Lina Verovaya
+        </a>{" "}
+        on{" "}
+        <a href="https://unsplash.com/photos/BibJjO4sYrI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+          Unsplash
+        </a>
       </footer>
     </FluentProvider>
   );
