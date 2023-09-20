@@ -1,6 +1,6 @@
 import { PRODUCTS } from "./products";
 import ProductCard from "../../components/ProductCard";
-import Hero from "../../components/Hero";
+import ShopHero from "../../components/ShopHero";
 import {
   makeStyles,
   makeResetStyles,
@@ -22,7 +22,7 @@ export default function ShopPage() {
   const styles = useStyles();
   return (
     <>
-      <Hero />
+      <ShopHero />
       <section className="shop w-full px-16 ms-auto me-auto bg-slate-300">
         <div className="shopTitle">
           <h1>Shop page</h1>
