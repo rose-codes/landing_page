@@ -6,15 +6,9 @@ import {
   shorthands,
   Text,
   makeStyles,
-  makeResetStyles,
-  mergeClasses,
   Image,
   Button,
 } from "@fluentui/react-components";
-
-const useDefaultStyles = makeResetStyles({
-  ":hover": {},
-});
 
 const useButtonStyles = makeStyles({
   addToCartButton: {
@@ -50,7 +44,6 @@ const useStyles = makeStyles({
 
 export default function ProductCard({ product }) {
   const styles = useStyles();
-  const defaultStyles = useDefaultStyles();
   const buttonClass = useButtonStyles();
   return (
     <Card className={`${styles.card}`}>
