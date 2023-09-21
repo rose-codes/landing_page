@@ -6,15 +6,19 @@ import {
   makeResetStyles,
   Body2,
   Subtitle1,
+  shorthands,
   tokens,
 } from "@fluentui/react-components";
 
 const useStyles = makeStyles({
   productGrid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(15rem, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
     rowGap: "1rem",
     columnGap: "1rem",
+    // backgroundColor: tokens.colorBrandBackground2,
+    ...shorthands.padding("4rem"),
+    ...shorthands.margin("0", "auto"),
   },
 });
 
@@ -23,10 +27,7 @@ export default function ShopPage() {
   return (
     <>
       <ShopHero />
-      <section className="shop w-full px-16 ms-auto me-auto bg-slate-300">
-        <div className="shopTitle">
-          <h1>Shop page</h1>
-        </div>
+      <section className="shop w-full ms-auto me-auto">
         <div className={`${styles.productGrid}`}>
           {PRODUCTS.map((product) => {
             return <ProductCard key={product.id} product={product} />;

@@ -13,16 +13,25 @@ import {
 } from "@fluentui/react-components";
 
 const useDefaultStyles = makeResetStyles({
-  ":hover": {
-    backgroundColor: tokens.colorPaletteDarkGreenBorderActive,
-    color: tokens.colorNeutralForegroundInvertedLinkHover,
+  ":hover": {},
+});
+
+const useButtonStyles = makeStyles({
+  addToCartButton: {
+    gridRow: "3/4",
+    backgroundColor: tokens.colorPaletteDarkGreenBackground2,
+
+    ":hover": {
+      backgroundColor: tokens.colorPaletteDarkGreenBorderActive,
+      color: tokens.colorNeutralForegroundInvertedLinkHover,
+    },
+    ":hover:active": {
+      textDecoration: "underline",
+    },
   },
 });
 
 const useStyles = makeStyles({
-  card: {
-    aspectRatio: "1/1.75",
-  },
   image: {
     maxWidth: "100%",
     width: "100%",
@@ -37,16 +46,12 @@ const useStyles = makeStyles({
     gridRowStart: "2",
     gridRowEnd: "3",
   },
-  button: {
-    gridRow: "3/4",
-    backgroundColor: tokens.colorPaletteDarkGreenBackground2,
-  },
 });
 
 export default function ProductCard({ product }) {
   const styles = useStyles();
   const defaultStyles = useDefaultStyles();
-  const buttonClass = mergeClasses(styles.button, defaultStyles);
+  const buttonClass = useButtonStyles();
   return (
     <Card className={`${styles.card}`}>
       <div className="flex flex-col">
@@ -58,9 +63,9 @@ export default function ProductCard({ product }) {
           <Text size="300" className={styles.description}>
             {product.description}
           </Text>
-          <Button className={buttonClass}>
+          <Button className={buttonClass.addToCartButton}>
             <Body2>Add to Cart - </Body2>
-            <Body2>$ {product.price}</Body2>
+            <Body2>${product.price}</Body2>
           </Button>
         </div>
       </div>
