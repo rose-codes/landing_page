@@ -33,8 +33,9 @@ export default function Navbar() {
         className={`navbar flex justify-between w-full h-8 content-center`}
       >
         <section className="left-side flex justify-evenly content-center">
-          <Link to="/" className="brandname flex content-center me-2">
-            <Subtitle1>Brand</Subtitle1>
+          <Link to="/" className="brandname flex content-center me-2 max-w-fit">
+            <Subtitle1>Wreath Skincare</Subtitle1>
+            {/* <img src="/wreath_logo.png" alt="wreath skincare logo"></img> */}
           </Link>
           <Link
             to="/shop"
