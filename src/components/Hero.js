@@ -1,5 +1,5 @@
 import { ArrowRightFilled } from "@fluentui/react-icons";
-
+import { Link } from "react-router-dom";
 import {
   makeStyles,
   shorthands,
@@ -65,14 +65,14 @@ export default function Hero() {
               <Subtitle2 className={`${styles.text}`}>
                 Offer ends 10/31.
               </Subtitle2>
-              <div className={`${styles.text}`}>
+              <Link to="/shop" className={`${styles.text}`}>
                 <Button shape="rounded" className={buttonClass}>
                   <div className="buttonContent flex gap-x-2 items-center">
                     <Subtitle2>Shop Now</Subtitle2>
                     <ArrowRightFilled />
                   </div>
                 </Button>
-              </div>
+              </Link>
             </div>
           </Card>
         </div>
