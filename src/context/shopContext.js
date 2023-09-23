@@ -14,8 +14,20 @@ const getDefaultCart = () => {
 export default function ShopContextProvider({ children }) {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
+  const getCartSubtotal = () => {
+    let subtotal = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
+        subtotal += cartItems[item] * itemInfo.price;
+      }
+    }
+    return subtotal;
+  };
+
   const addToCart = (itemId) => {
     setCartItems((cart) => ({ ...cart, [itemId]: cart[itemId] + 1 }));
+    console.log(cartItems);
   };
 
   const removeFromCart = (itemId) => {
@@ -25,9 +37,35 @@ export default function ShopContextProvider({ children }) {
     }));
   };
 
+  const updateCartItemCount = (newCount, itemId) => {
+    setCartItems((cart) => ({
+      ...cart,
+      [itemId]: newCount,
+    }));
+  };
+
+  const getItemsInCartCount = () => {
+    let itemsCount = 0;
+    for (const item in cartItems) {
+      if (cartItems[item] > 0) {
+        itemsCount += cartItems[item];
+      }
+    }
+    return itemsCount;
+  };
+
   console.log(cartItems);
   return (
-    <ShopContext.Provider value={{ addToCart, removeFromCart, cartItems }}>
+    <ShopContext.Provider
+      value={{
+        addToCart,
+        removeFromCart,
+        cartItems,
+        updateCartItemCount,
+        getCartSubtotal,
+        getItemsInCartCount,
+      }}
+    >
       {children}
     </ShopContext.Provider>
   );
