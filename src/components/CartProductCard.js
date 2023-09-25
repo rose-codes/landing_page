@@ -2,9 +2,7 @@ import { useShopContext } from "../hooks/useShopContext";
 import {
   makeStyles,
   Card,
-  Subtitle2,
   Title3,
-  Body1,
   Subtitle1,
 } from "@fluentui/react-components";
 
@@ -12,15 +10,10 @@ const useCardStyles = makeStyles({
   productGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(1rem, 1fr))",
-
-    // columnGap: "2rem",
   },
 });
 
 const useButtonStyles = makeStyles({
-  addOrRemove: {
-    // height: "2rem",
-  },
   remove: {
     height: "2rem",
     gridRowStart: "3",
@@ -47,7 +40,7 @@ export const CartProductCard = ({ product }) => {
       <div className={imageStyles.productImage}>
         <img
           src={product.productImage}
-          alt="product image"
+          alt="product"
           className="max-w-full h-full"
         ></img>
       </div>
@@ -59,7 +52,7 @@ export const CartProductCard = ({ product }) => {
         <div className="productAmountCounter border border-solid w-6/12 flex justify-center justify-self-center">
           <button
             className={buttonStyles.addOrRemove}
-            onClick={() => removeFromCart}
+            onClick={() => removeFromCart(product.id)}
           >
             -
           </button>
@@ -74,7 +67,7 @@ export const CartProductCard = ({ product }) => {
           ></input>
           <button
             className={buttonStyles.addOrRemove}
-            onClick={() => addToCart}
+            onClick={() => addToCart(product.id)}
           >
             +
           </button>

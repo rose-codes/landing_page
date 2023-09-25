@@ -18,7 +18,9 @@ export default function ShopContextProvider({ children }) {
     let subtotal = 0;
     for (const item in cartItems) {
       if (cartItems[item] > 0) {
-        let itemInfo = PRODUCTS.find((product) => product.id === Number(item));
+        let itemInfo = PRODUCTS.find(
+          (product) => product.id === parseInt(item)
+        );
         subtotal += cartItems[item] * itemInfo.price;
       }
     }

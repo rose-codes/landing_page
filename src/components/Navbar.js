@@ -15,6 +15,8 @@ import {
   Subtitle1,
 } from "@fluentui/react-components";
 
+import { useShopContext } from "../hooks/useShopContext.js";
+
 const useStyles = makeStyles({
   container: {
     ...shorthands.gap("16px"),
@@ -25,6 +27,8 @@ const useStyles = makeStyles({
 
 export default function Navbar() {
   const styles = useStyles();
+  const { getItemsInCartCount } = useShopContext();
+  const cartItemsCount = getItemsInCartCount();
   return (
     <section
       className={`${styles.container} navbar-container flex px-16 py-4 min-w-max justify-center`}
@@ -96,13 +100,15 @@ export default function Navbar() {
               <Body2>Find a Store</Body2>
             </div>
           </Link>
+
           <Link
             to="/cart"
             className="nav-link flex content-center items-center mx-2"
           >
             <CartRegular />
             <div className="ml-1">
-              <Body2>Cart</Body2>
+              {cartItemsCount === 0 && <Body2>Cart</Body2>}
+              {cartItemsCount > 0 && <div>Cart ({cartItemsCount})</div>}
             </div>
           </Link>
         </section>
