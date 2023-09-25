@@ -10,6 +10,8 @@ import {
   Button,
 } from "@fluentui/react-components";
 
+import { useShopContext } from "../hooks/useShopContext";
+
 const useButtonStyles = makeStyles({
   addToCartButton: {
     gridRow: "3/4",
@@ -18,9 +20,6 @@ const useButtonStyles = makeStyles({
     ":hover": {
       backgroundColor: tokens.colorPaletteDarkGreenBorderActive,
       color: tokens.colorNeutralForegroundInvertedLinkHover,
-    },
-    ":hover:active": {
-      textDecoration: "underline",
     },
   },
 });
@@ -45,20 +44,24 @@ const useStyles = makeStyles({
 export default function ProductCard({ product }) {
   const styles = useStyles();
   const buttonClass = useButtonStyles();
+  const { id, productName, productImage, description, price } = product;
+  const { addToCart } = useShopContext();
+
   return (
     <Card className={`${styles.card}`}>
       <div className="flex flex-col">
-        <Image src={product.productImage} className={styles.image} />
+        <Image src={productImage} className={styles.image} />
         <div className="card-text grid grid-rows-3">
-          <Subtitle1 className={styles.productName}>
-            {product.productName}
-          </Subtitle1>
+          <Subtitle1 className={styles.productName}>{productName}</Subtitle1>
           <Text size="300" className={styles.description}>
-            {product.description}
+            {description}
           </Text>
-          <Button className={buttonClass.addToCartButton}>
+          <Button
+            className={buttonClass.addToCartButton}
+            onClick={() => addToCart(id)}
+          >
             <Body2>Add to Cart - </Body2>
-            <Body2>${product.price}</Body2>
+            <Body2>${price}</Body2>
           </Button>
         </div>
       </div>
