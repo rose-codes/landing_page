@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import LandingPage from "./pages/LandingPage";
 import CartPage from "./pages/cart/CartPage";
 import ShopPage from "./pages/shop/ShopPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { FluentProvider, teamsLightTheme } from "@fluentui/react-components";
@@ -12,28 +13,28 @@ import ShopContextProvider from "./context/shopContext";
 
 function App() {
   // new line start
-  const [profileData, setProfileData] = useState(null);
+  // const [profileData, setProfileData] = useState(null);
 
-  function getData() {
-    axios({
-      method: "GET",
-      url: "/profile",
-    })
-      .then((response) => {
-        const res = response.data;
-        setProfileData({
-          profile_name: res.name,
-          about_me: res.about,
-        });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
+  // function getData() {
+  //   axios({
+  //     method: "GET",
+  //     url: "/profile",
+  //   })
+  //     .then((response) => {
+  //       const res = response.data;
+  //       setProfileData({
+  //         profile_name: res.name,
+  //         about_me: res.about,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       if (error.response) {
+  //         console.log(error.response);
+  //         console.log(error.response.status);
+  //         console.log(error.response.headers);
+  //       }
+  //     });
+  // }
   //end of new line
 
   return (
@@ -45,8 +46,10 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/shop" element={<ShopPage />} />
+            <Route path="/not-found" element={<NotFoundPage />} />
+            <Route path="*" element={<Navigate to="/not-found" replace />} />
           </Routes>
-          <header className="App-header">
+          {/* <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
               Edit <code>src/App.js</code> and save to reload.
@@ -58,18 +61,18 @@ function App() {
               rel="noopener noreferrer"
             >
               Learn React
-            </a>
+            </a> */}
 
-            {/* new line start*/}
-            <p>To get your profile details: </p>
+          {/* new line start*/}
+          {/* <p>To get your profile details: </p>
             <button onClick={getData}>Click me</button>
             {profileData && (
               <div>
                 <p>Profile name: {profileData.profile_name}</p>
                 <p>About me: {profileData.about_me}</p>
               </div>
-            )}
-          </header>
+            )} */}
+          {/* </header> */}
         </div>
         <footer>
           Photo by{" "}
